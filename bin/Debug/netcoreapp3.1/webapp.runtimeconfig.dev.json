@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\biqian\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\biqian\\.nuget\\packages"
+    ]
+  }
+}
