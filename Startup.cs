@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -15,7 +16,7 @@ namespace webapp
     {
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
-        public static string content="hello";
+        public static string content = "hello2";
         public void ConfigureServices(IServiceCollection services)
         {
         }
@@ -38,12 +39,12 @@ namespace webapp
                 });
                 endpoints.MapPost("/", async context =>
                 {
-                   var body= context.Request.Body;
-                    var reader = new StreamReader(body);
-                     reader.BaseStream.Seek(0, SeekOrigin.Begin); 
-                     var rawMessage = reader.ReadToEnd();
-                    content = rawMessage;
-                    await context.Response.WriteAsync(rawMessage);
+                    var body = context.Request.Body;
+                  
+                    byte[] bytes = new byte[2048*1024];
+                     var off=   await body.ReadAsync(bytes, 0, 2048*1024);
+                    content = System.Text.Encoding.UTF8.GetString(bytes,0,off);
+                    await context.Response.WriteAsync(content);
                 });
             });
         }
