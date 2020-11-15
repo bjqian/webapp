@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\biqian\\source\\repos\\samples\\webapp\\webapp.csproj": {}
+    "C:\\Users\\biqian\\source\\repos\\tests\\biqianwebapp2\\webapp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\biqian\\source\\repos\\samples\\webapp\\webapp.csproj": {
+    "C:\\Users\\biqian\\source\\repos\\tests\\biqianwebapp2\\webapp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\biqian\\source\\repos\\samples\\webapp\\webapp.csproj",
+        "projectUniqueName": "C:\\Users\\biqian\\source\\repos\\tests\\biqianwebapp2\\webapp.csproj",
         "projectName": "webapp",
-        "projectPath": "C:\\Users\\biqian\\source\\repos\\samples\\webapp\\webapp.csproj",
+        "projectPath": "C:\\Users\\biqian\\source\\repos\\tests\\biqianwebapp2\\webapp.csproj",
         "packagesPath": "C:\\Users\\biqian\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\biqian\\source\\repos\\samples\\webapp\\obj\\",
+        "outputPath": "C:\\Users\\biqian\\source\\repos\\tests\\biqianwebapp2\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\biqian\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -22,8 +22,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://www.nuget.org/api/v2": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
@@ -38,6 +37,12 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -56,7 +61,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.404\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
         }
       }
     }

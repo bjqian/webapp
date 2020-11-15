@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Newtonsoft.Json;
 
 namespace webapp
 {
@@ -40,10 +42,13 @@ namespace webapp
                 endpoints.MapPost("/", async context =>
                 {
                     var body = context.Request.Body;
-                  
+                    var header = context.Request.Headers;
+                    var headerstring = JsonConvert.SerializeObject(header);
                     byte[] bytes = new byte[2048*1024];
                      var off=   await body.ReadAsync(bytes, 0, 2048*1024);
-                    content = System.Text.Encoding.UTF8.GetString(bytes,0,off);
+                    content = headerstring + "     ";
+                    content+= System.Text.Encoding.UTF8.GetString(bytes,0,off);
+                    content += "     " +DateTime.Now.ToString();
                     await context.Response.WriteAsync(content);
                 });
             });
